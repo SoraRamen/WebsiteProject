@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="flower.css">
+    <title>Gifts and Flowers - Home</title>
+    <style>
+        .rotating {
+            animation: rotation 2s infinite linear; /* Adjust duration for rotation speed */
+        }
+
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="flower_home.html">
+            <img src="logo/CubeSkull.jpg" alt="Skull Logo" class="skull-logo"> 
+            Gifts and Flowers
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="shop.html">Flowers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="portion.html">Potions</a>
+                </li>
+                <li>
+                    <audio id="backgroundMusic" src="Mp3/1-01 Octopath Traveler –Main Theme–.mp3" autoplay loop style="display:none;"></audio>
+                </li>
+            </ul>
+            <div class="ml-auto d-flex align-items-center">
+                <!-- Volume Control Slider moved here -->
+                <div class="volume-control text-center mr-3">
+                    <img id="volumeImage" src="logo/octopath_traveler_icon_hd_by_sirleviatan_dgc67jr-pre.png" alt="Volume Image" style="width: 70px; height: 70px; margin-right: 5px;">
+                    <label for="volumeSlider">Volume:</label>
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1" style="width: 100px;">
+                    <button id="playPauseButton" class="btn btn-secondary ml-2" onclick="toggleMusic()">Play</button>
+                </div>
+                
+                <button id="authButton" class="btn btn-primary" onclick="toggleAuth()">Log In</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="home-background">
+        <div class="container mt-5 text-center">
+            <img src="logo/PotionKeeper.png" alt="Sora Logo" class="logo mb-4"> 
+            <p>You encounter a mysterious merchant!</p>
+            <h1>Gift and Flowers</h1> 
+            <a href="shop.html" class="btn btn-game-design mt-3">Flowers</a> 
+            <a href="portion.html" class="btn btn-game-design mt-3">Potions</a>
+        </div>
+        <div class="Check_product mt-5 text-center">
+            <h1>Scroll down to see some products before you buy!</h1>
+        </div>
+    </div>
+
+    <div class="banner">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div class="slider" style="--quantity: 10">
+            <div class="item" style="--position: 1">
+                <a href="portion.html">
+                    <img src="Potions/DarkMoonPotion_border.png" alt="Dark Moon Potion">
+                </a>
+            </div>
+            <div class="item" style="--position: 2">
+                <a href="shop.html">
+                    <img src="Flowers/DreamscapePetal_border.png" alt="Dreamscape Petal">
+                </a>
+            </div>
+            <div class="item" style="--position: 3">
+                <a href="portion.html">
+                    <img src="Potions/HealPotion_border.png" alt="Healing Potion">
+                </a>
+            </div>
+            <div class="item" style="--position: 4">
+                <a href="shop.html">
+                    <img src="Flowers/TechnoBlossoms_border.png" alt="Techno Blossoms">
+                </a>
+            </div>
+            <div class="item" style="--position: 5">
+                <a href="portion.html">
+                    <img src="Potions/SpeedPotion_border.png" alt="Speed Potion">
+                </a>
+            </div>
+            <div class="item" style="--position: 6">
+                <a href="shop.html">
+                    <img src="Flowers/PixelBlossoms_border.png" alt="Pixel Blossoms">
+                </a>
+            </div>
+            <div class="item" style="--position: 7">
+                <a href="portion.html">
+                    <img src="Potions/StrengthPotion_border.png" alt="Strength Potion">
+                </a>
+            </div>
+            <div class="item" style="--position: 8">
+                <a href="shop.html">
+                    <img src="Flowers/BotanicalBytes.png" alt="Botanical Bytes">
+                </a>
+            </div>
+            <div class="item" style="--position: 9">
+                <a href="portion.html">
+                    <img src="Potions/JumpPotion_border.png" alt="Jump Potion">
+                </a>
+            </div>
+            <div class="item" style="--position: 10">
+                <a href="shop.html">
+                    <img src="Flowers/Cyberpetal_border.png" alt="Cyberpetal">
+                </a>
+            </div>
+
+            <!-- Game-style chat box -->
+            <h1 class="Merchant_img">Mira_Ramen</h1>
+            <img src="gif/Steorra.gif" class="no-rotate" alt="Steorra Image" id="steorraImage" onclick="showRandomMessage()">
+            <!-- Chat box -->
+            <div id="chatBox" class="chat-box">
+                <div class="chat-header">
+                    <span>NPC Chat</span>
+                </div>
+                <div class="chat-content" id="chatContent">
+                    <p>Welcome, traveler! What would you like to know?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Updated About Us Section -->
+    <div class="about-us-section text-center">
+        <div class="container text-center">
+            <h2>About Us</h2>
+            <p>Welcome to Gifts and Flowers! We offer a unique blend of magical potions and enchanting flowers to bring magic into your world. Our mystical merchant, Sora, is here to guide you through the wonders we provide. Stay enchanted and explore our selection!</p>
+        </div>
+    </div>
+
+    <div class="extra_info text-center">
+        <div class="container2 text-center">
+            <div class="extra_info_text">
+                <span class="hover-text">FAQ</span>
+                <span class="hover-text">Terms of Use</span>
+                <span class="hover-text">Cookie Policy</span>
+                <span class="hover-text">Contact Us</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Initialize login state from localStorage
+        let isSignedIn = localStorage.getItem('isSignedIn') === 'true';
+
+        function toggleAuth() {
+            const authButton = document.getElementById('authButton');
+            const audio = document.getElementById('backgroundMusic'); // Get the audio element
+            const volumeImage = document.getElementById('volumeImage'); // Get the volume image
+
+            if (!isSignedIn) {
+                isSignedIn = true; // Simulating signing in
+                authButton.textContent = "Log Out"; // Change button to "Log Out"
+                
+                // Play the audio
+                audio.play().catch(function(error) {
+                    console.log('Audio play failed:', error);
+                });
+
+                // Add the rotating class to the image
+                volumeImage.classList.add('rotating');
+
+                // Save login state to localStorage
+                localStorage.setItem('isSignedIn', 'true');
+            } else {
+                isSignedIn = false; // Resetting sign in
+                authButton.textContent = "Log In"; // Change button to "Log In"
+                
+                // Pause the audio
+                audio.pause();
+
+                // Remove the rotating class from the image
+                volumeImage.classList.remove('rotating');
+
+                // Save login state to localStorage
+                localStorage.setItem('isSignedIn', 'false');
+            }
+        }
+
+        // Volume Control
+        const volumeSlider = document.getElementById('volumeSlider');
+        volumeSlider.addEventListener('input', function() {
+            const audio = document.getElementById('backgroundMusic');
+            audio.volume = volumeSlider.value;
+        });
+
+        // Function to toggle music playback and rotate the image
+        function toggleMusic() {
+            const audio = document.getElementById('backgroundMusic');
+            const playPauseButton = document.getElementById('playPauseButton');
+            const volumeImage = document.getElementById('volumeImage'); // Get the volume image
+
+            if (audio.paused) {
+                audio.play();
+                playPauseButton.textContent = "Pause";
+                volumeImage.classList.add('rotating'); // Add rotation on play
+            } else {
+                audio.pause();
+                playPauseButton.textContent = "Play";
+                volumeImage.classList.remove('rotating'); // Remove rotation on pause
+            }
+        }
+
+        // Random chat messages
+        const chatMessages = [
+            "Looking for something special?",
+            "Our flowers have magical properties!",
+            "Potions can change your destiny.",
+            "Have you seen our new arrivals?",
+            "Take your time to browse."
+        ];
+
+        function showRandomMessage() {
+            const randomIndex = Math.floor(Math.random() * chatMessages.length);
+            const chatContent = document.getElementById('chatContent');
+            chatContent.innerHTML = "<p>" + chatMessages[randomIndex] + "</p>";
+            document.getElementById("chatBox").style.display = "block"; // Show chat box
+        }
+    </script>
+    <style>
+        .rotating {
+            animation: rotation 15s infinite linear; /* Adjusted duration for slower rotation */
+        }
+    
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+    </style>
+    
+</body>
+</html>

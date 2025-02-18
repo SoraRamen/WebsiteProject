@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="flower.css">
+    <title>Gifts and Flowers - Shop</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="flower_home.html">
+            <img src="logo/CubeSkull.jpg" alt="Skull Logo" class="skull-logo">
+            Gifts and Flowers
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="flower_home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="portion.html">Potions</a>
+                </li>
+                <li>
+                    <audio id="backgroundMusic" src="Mp3/1-01 Octopath Traveler –Main Theme–.mp3" autoplay loop style="display:none;"></audio>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <button id="cartBtn" class="btn btn-primary">Cart (<span id="cartCount">0</span>)</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="shop-background">
+        <div class="container mt-5">
+            <h2>Our Flowers</h2>
+            <div class="row" id="productList" style="overflow-y: auto; height: 800px;">
+                <!-- Product items will be rendered here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Cart</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group" id="cartItems"></ul>
+                    <p>Total: $<span id="totalPrice">0.00</span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="checkout()">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="flower.js"></script>
+</body>
+<style>
+   
+    body {
+        margin: 0; 
+        padding: 0; 
+        background-image: url('gif/AnasAbdin.gif'); /* Change this to your portion wallpaper GIF */
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat; 
+        min-height: 100vh; 
+        overflow: hidden; /* Prevent body scroll */
+    }
+    #productList {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        height: 100%;
+        overflow-y: auto;
+        background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+        border: 2px solid #444; /* Dark border */
+        border-radius: 10px; /* Rounded corners for a softer look */
+        padding: 20px; /* Padding for inner space */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+        margin-top: 20px;
+    }
+
+</style>
+</html>
